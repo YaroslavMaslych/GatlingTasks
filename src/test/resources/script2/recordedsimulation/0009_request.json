@@ -1,0 +1,17 @@
+{
+  "Id":"",
+  "Title":"TITLE",
+  "Author":"Editor",
+  "Content":"<p>TEXT</p>",
+  "DateCreated":"2021-01-13 11:53",
+  "Slug":"SLUG_TITLE",
+  "Categories":[
+
+  ],
+  "Tags":[
+
+  ],
+  "Comments":"",
+  "HasCommentsEnabled":true,
+  "IsPublished":true
+}

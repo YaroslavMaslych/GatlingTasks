@@ -1,0 +1,1 @@
+{"UserName":"User_${userNumberInJSON}","Email":"qwerty@mail.mail","Password":"qwertyqwerty","roles":[{"IsChecked":false,"RoleName":"Administrators","IsSystemRole":true},{"IsChecked":false,"RoleName":"Editors","IsSystemRole":true}]}
