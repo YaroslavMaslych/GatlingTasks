@@ -35,6 +35,29 @@ class Script_3 extends Simulation {
       16.667 -> exec(requests.Contacts)
     )
 
-  setUp(scn4.inject(rampUsers(1000).during(1000.seconds)).protocols(protocol.httpProtocol))
+  val scn1: ScenarioBuilder = scenario("Script_3_alt")
+    .randomSwitch(
+      16.6 -> exec(requests.HomePage,randomSwitch(
+        50.0 -> exec(requests.RandomPage).randomSwitch(
+          50.0 -> exec(requests.Post)
+        ))),
+        16.6 -> exec(requests.PredefinedDate,randomSwitch(
+          50.0 -> exec(requests.RandomPage).randomSwitch(
+            50.0 -> exec(requests.Post)
+          ))),
+      16.6 -> exec(requests.RandomDate,randomSwitch(
+        50.0 -> exec(requests.RandomPage).randomSwitch(
+          50.0 -> exec(requests.Post)
+        ))),
+      16.6 -> exec(requests.SearchByName,randomSwitch(
+          50.0 -> exec(requests.Post)
+        )),
+      16.6 -> exec(requests.Archive,randomSwitch(
+        50.0 -> exec(requests.Post)
+      )),
+      16.7 -> exec(requests.Contacts)
+    )
+
+  setUp(scn4.inject(rampUsers(100).during(100.seconds)).protocols(protocol.httpProtocol))
 }
 

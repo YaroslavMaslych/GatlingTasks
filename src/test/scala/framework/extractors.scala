@@ -4,7 +4,7 @@ import io.gatling.core.Predef._
 import io.gatling.core.check.CheckBuilder
 import io.gatling.core.check.regex.RegexCheckType
 
-object extractors extends Simulation{
+object extractors{
 
   val slugRegex: CheckBuilder[RegexCheckType, String, String] = regex("""Blog\/(.*SLUG_\d*)""").findRandom.saveAs("postSlug")
 
@@ -24,7 +24,7 @@ object extractors extends Simulation{
 
   val relativeLink: CheckBuilder[RegexCheckType, String, String] = regex(""""RelativeLink":"\/Blog(\/.*SLUG_\d*)"""").find.saveAs("relativeLink")
 
-  val postId: CheckBuilder[RegexCheckType, String, String] = regex("""<div class="post-adminlinks"><a href="http:\/\/192\.168\.56\.102\/Blog\/admin\/app\/editor\/editpost\.cshtml\?id=([0-9a-zA-Z\-]*)">""").findRandom.saveAs("postId")
+  val postId: CheckBuilder[RegexCheckType, String, String] = regex("""cshtml\?id=([\w\d-]*)""").find.optional.saveAs("postId")
 
   val countSlugRegex: CheckBuilder[RegexCheckType, String, Int] = regex("""Blog\/(.*SLUG_\d*)""").count.saveAs("postSlugCount")
 

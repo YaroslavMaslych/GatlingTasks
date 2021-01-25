@@ -11,7 +11,7 @@ class Script_2 extends Simulation {
   val scn: ScenarioBuilder = scenario("Script_2")
     .exec(requests.HomePage)
     .exec(requests.LoginPage)
-    .exec(requests.Login)
+    .exec(requests.LoginEditor)
     .exec(requests.Posts)
     .exec(requests.NewPostPage)
     .exec(requests.NewPost)

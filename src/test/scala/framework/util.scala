@@ -7,13 +7,13 @@ import java.nio.charset.StandardCharsets
 import scala.util.Random
 
 
-object util extends Simulation {
+object util {
   val calculateRegex: ChainBuilder = exec { s: Session =>
     val a = new Random
     val c = s("postSlugCount").as[Int];
     val i = a.nextInt(2)
     val r = s("postSlugAll").as[List[String]]
-    val k = generateInt(c - 1, 0)
+    val k = generateInt(0, c - 1)
     if (i == 0) {
       s.set("postSlug", r(0))
     } else {
@@ -21,13 +21,18 @@ object util extends Simulation {
     }
   }
 
+  val printSlug = exec {s: Session =>
+    println(s("slug").as[StringContext])
+    s
+  }
+
   val predefinedPageNumber = 10
 
-  val pauseMin = 10
+  val pauseMin = 5
 
-  val pauseMax = 5
+  val pauseMax = 10
 
-  def generateInt(max: Int, min: Int): Int = {
+  def generateInt(min: Int, max: Int): Int = {
     val r = new Random
     r.nextInt((max - min)+1) + min
   }
