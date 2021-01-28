@@ -9,14 +9,14 @@ import scala.concurrent.duration._
 class Script_6 extends Simulation {
 
   val randomChain1: ChainBuilder = randomSwitch(
-    33.334 -> exec(requests.HomePage),
-    33.333 -> exec(requests.RandomDate),
-    33.333 -> exec(requests.PredefinedDate)
+    27.27 -> exec(requests.HomePage),
+    18.18 -> exec(requests.RandomDate),
+    54.55 -> exec(requests.PredefinedDate)
   ).exec(util.calculateRegex)
 
   val randomChain2: ChainBuilder = randomSwitch(
-    50.0 -> exec(requests.SearchByName),
-    50.0 -> exec(requests.Archive)
+    75.0 -> exec(requests.SearchByName),
+    25.0 -> exec(requests.Archive)
   ).exec(util.calculateRegex)
 
   val randomChain3: ChainBuilder = randomSwitch(
@@ -33,9 +33,9 @@ class Script_6 extends Simulation {
     .exec(requests.HomePage)
     .repeat(50) {
       randomSwitch(
-        50.0 -> exec(randomChain1, randomChain3, randomChain4),
-        33.333 -> exec(randomChain2, randomChain4),
-        16.667 -> exec(requests.Contacts)
+        55.0 -> exec(randomChain1, randomChain3, randomChain4),
+        40.0 -> exec(randomChain2, randomChain4),
+        10.0 -> exec(requests.Contacts)
       )
     }
 

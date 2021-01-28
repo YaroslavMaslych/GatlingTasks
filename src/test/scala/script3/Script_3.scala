@@ -28,14 +28,14 @@ class Script_3 extends Simulation {
       50.0 -> requests.Post
     )
 
-  val scn4: ScenarioBuilder = scenario("Script_3")
+  val script3: ScenarioBuilder = scenario("Script_3")
     .randomSwitch(
       50.0 -> exec(randomChain1, randomChain3, randomChain4),
       33.333 -> exec(randomChain2, randomChain4),
       16.667 -> exec(requests.Contacts)
     )
 
-  val scn1: ScenarioBuilder = scenario("Script_3_alt")
+  val script3alt: ScenarioBuilder = scenario("Script_3_alt")
     .randomSwitch(
       16.6 -> exec(requests.HomePage,randomSwitch(
         50.0 -> exec(requests.RandomPage).randomSwitch(
@@ -58,6 +58,6 @@ class Script_3 extends Simulation {
       16.7 -> exec(requests.Contacts)
     )
 
-  setUp(scn4.inject(rampUsers(100).during(100.seconds)).protocols(protocol.httpProtocol))
+  setUp(script3alt.inject(rampUsers(2000).during(3000.seconds)).protocols(protocol.httpProtocol))
 }
 
