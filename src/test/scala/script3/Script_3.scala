@@ -2,9 +2,10 @@ package script3
 
 import framework.headers
 import framework._
-
+import scala.concurrent.duration.DurationInt
 import scala.concurrent.duration._
 import io.gatling.core.Predef._
+import io.gatling.http.Predef._
 import io.gatling.core.structure.{ChainBuilder, ScenarioBuilder}
 
 class Script_3 extends Simulation {
